@@ -127,7 +127,7 @@ export default function CalculadoraConveccion() {
                     </div>
                 </div>
 
-                <Button type="submit" className="w-full mt-4 sm:mt-6 md:mt-8 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white text-lg sm:text-xl md:text-2xl font-bold py-3 sm:py-4 md:py-5 rounded-xl transition duration-300 ease-in-out shadow-lg">
+                <Button type="submit" className="w-full mt-4 sm:mt-6 md:mt-8 mb-8 sm:mb-0 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white text-lg sm:text-xl md:text-2xl font-bold py-3 sm:py-4 md:py-5 rounded-xl transition duration-300 ease-in-out shadow-lg">
                     Calcular
                 </Button>
             </form>

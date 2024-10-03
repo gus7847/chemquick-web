@@ -34,7 +34,7 @@ export default function ResultadosDrawer({ data }) {
 
     return (
         <div className={`fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-lg text-gray-200 rounded-t-3xl shadow-xl transition-all duration-300 ease-in-out ${isOpen ? 'h-[70vh]' : 'h-10'}`}>
-            <div className="flex justify-center items-center h-10 cursor-pointer" onClick={() => setIsOpen(!isOpen)} style={{ paddingTop: isOpen ? '10px' : '0px' }}>
+            <div className="flex justify-center items-center h-10 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
                 {isOpen ? <ChevronDown className="w-6 h-6" /> : <ChevronUp className="w-6 h-6" />}
                 <span className="ml-2 text-lg sm:text-xl font-bold">Resultados</span>
             </div>
@@ -42,11 +42,18 @@ export default function ResultadosDrawer({ data }) {
             {isOpen && (
                 <div className="p-3 sm:p-4 md:p-6 overflow-y-auto h-[calc(70vh-2.5rem)]">
                     <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-gray-800/50 rounded-xl">
-                            <TabsTrigger value="general" className="data-[state=active]:bg-blue-600/50 data-[state=active]:text-white rounded-lg">General</TabsTrigger>
-                            <TabsTrigger value="calculos" className="data-[state=active]:bg-blue-600/50 data-[state=active]:text-white rounded-lg">Cálculos</TabsTrigger>
-                            <TabsTrigger value="lambda" className="data-[state=active]:bg-blue-600/50 data-[state=active]:text-white rounded-lg">Lambda</TabsTrigger>
-                            <TabsTrigger value="final" className="data-[state=active]:bg-blue-600/50 data-[state=active]:text-white rounded-lg">Resultados Finales</TabsTrigger>
+                        <TabsList className="flex flex-wrap justify-center mb-4 bg-transparent">
+                            {["general", "calculos", "lambda", "final"].map((tab) => (
+                                <TabsTrigger
+                                    key={tab}
+                                    value={tab}
+                                    className="px-3 py-2 m-1 text-xs sm:text-sm rounded-full bg-gray-800/50 text-gray-300 data-[state=active]:bg-blue-600/50 data-[state=active]:text-white transition-all duration-200 ease-in-out"
+                                >
+                                    {tab === "general" ? "General" :
+                                        tab === "calculos" ? "Cálculos" :
+                                            tab === "lambda" ? "Lambda" : "Resultados Finales"}
+                                </TabsTrigger>
+                            ))}
                         </TabsList>
                         <TabsContent value="general" className="mt-3 sm:mt-4">
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
