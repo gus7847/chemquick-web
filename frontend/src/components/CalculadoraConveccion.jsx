@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import ResultadosDrawer from "./ResultadosDrawer"
 
-const apiURL = process.env.API_URL
+const apiURL = process.env.NEXT_PUBLIC_API_URL
 
 const CustomInput = ({ label, value, onChange, name }) => (
     <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-5 border border-gray-700/50 shadow-lg">
