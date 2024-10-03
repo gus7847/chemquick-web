@@ -1,0 +1,7 @@
+numpy
+scipy
+sympy
+dataclasses
+uvicorn
+pydantic
+fastapi
