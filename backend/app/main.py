@@ -13,7 +13,7 @@ app = FastAPI(
 # Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Permitir solo el origen específico
+    allow_origins=["https://chemquick-web.vercel.app/"],  # Permitir solo el origen específico
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
