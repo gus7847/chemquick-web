@@ -5,6 +5,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import ResultadosDrawer from "./ResultadosDrawer"
 
+const apiURL = process.env.NEXT_PUBLIC_API_URL
+
 const CustomInput = ({ label, value, onChange, name }) => (
     <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-5 border border-gray-700/50 shadow-lg">
         <input
@@ -56,7 +58,7 @@ export default function CalculadoraConveccion() {
             Object.entries(formData).map(([key, value]) => [key, value === "" ? "0" : value])
         )
         try {
-            const response = await fetch('http://localhost:8000/convection/calculate', {
+            const response = await fetch(`${apiURL}/convection/calculate`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
